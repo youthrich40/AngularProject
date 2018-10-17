@@ -1,0 +1,34 @@
+body{
+    background-image: url("https://images.unsplash.com/photo-1531904796324-bcfd734e57f1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2996cb13acadb7441ac2ae60f65cb139&auto=format&fit=crop&w=1358&q=80");
+    background-size: cover
+}
+
+body h1{
+    text-align: center;
+    color: rgba(0,0,0,0.7);
+    margin-top: 50px;
+    font-family: fantasy;
+}
+
+body .guess{
+    text-align: center;
+    background-color: rgba(255,255,255,0.7);
+}
+
+body .incorrectGusses{
+    text-align: left;
+    margin-left: 100px;
+}
+
+body .correctGusses{
+    text-align: right;
+    margin-right: 100px;
+}
+
+body .display{
+    text-align: center;
+}
+
+body .submit{
+    text-align: center;
+}
