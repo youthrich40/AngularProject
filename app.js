@@ -1,7 +1,7 @@
 var app = angular.module("HangmanApp", []);
 
 app.controller("GameController", ['$scope', '$timeout', function($scope, $timeout) {
-    var words = ["Altassian", "Remember", "Mountain", "Pokemon", "things", "blanket", "world", "angular", "china", "homerun", "bed", "couch", "unbelievable", "heroic",
+    var words = ["Atlassian", "Remember", "Mountain", "Pokemon", "things", "blanket", "world", "angular", "china", "homerun", "bed", "couch", "unbelievable", "heroic",
     "outstanding", "table"];
     
     $scope.input = {
@@ -23,6 +23,7 @@ app.controller("GameController", ['$scope', '$timeout', function($scope, $timeou
         $scope.displayWord = "";
         selectedWord = selectRandomWord();
         $scope.resultsStatement = '';
+        $scope.showWord = '';
         var tempDisplayWord = '';
         for (var i = 0; i < selectedWord.length; i++) {
             tempDisplayWord += '*';
@@ -32,6 +33,7 @@ app.controller("GameController", ['$scope', '$timeout', function($scope, $timeou
     
     function loseGame() {
         $scope.resultsStatement = "YOU LOSE";
+        $scope.showWord = "The word was: " + selectedWord;
     }
     
     function winGame() {

@@ -24,13 +24,13 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="gameInfo">
-                Guesses Left :: {{guesses}}
+                    Guesses Left :: {{guesses}}
                 </div>
                 <div class="gameInfo">
-                    Your Incorrect Guesses :: <span ng-repeat="letter in incorrectLettersChosen"> {{letter}} </span>
+                    Incorrect Guesses :: <span ng-repeat="letter in incorrectLettersChosen"> {{letter}} </span>
                 </div>
                 <div class="gameInfo">
-                    Your Correct Guesses :: <span ng-repeat="letter in correctLettersChosen"> {{letter}} </span>
+                    Correct Guesses :: <span ng-repeat="letter in correctLettersChosen"> {{letter}} </span>
                 </div>
                 <div class="gameInfo">
                     The word is :: {{displayWord}}
@@ -42,8 +42,9 @@
                     </div>
                 </div>
             </div>
-            <div id="gameResultsBox" class="col-md-6">
+            <div class="col-md-6">
                 <p class="resultsStatement">{{resultsStatement}}</p>
+                <p class="showWord">{{showWord}}</p>
             </div>
         </div>
     </div>
