@@ -3,14 +3,13 @@ var app = angular.module("HangmanApp", []);
 app.controller("GameController", ['$scope', '$timeout', function($scope, $timeout) {
     var words = ["Altassian", "Remember", "Mountain", "Pokemon", "things", "blanket", "world", "angular", "china", "homerun", "bed", "couch", "unbelievable", "heroic",
     "outstanding", "table"];
-    $scope.incorrectLettersChosen = [];
-    $scope.correctLettersChosen = [];
-    var selectedWord = '';
-    $scope.guesses = 6;
-    $scope.displayWord = '';
+    
     $scope.input = {
         letter: ''
     };
+    
+    var selectedWord;
+    newGame();
     
     function selectRandomWord() {
         var index = Math.floor(Math.random() * words.length);
@@ -23,31 +22,28 @@ app.controller("GameController", ['$scope', '$timeout', function($scope, $timeou
         $scope.guesses = 6;
         $scope.displayWord = "";
         selectedWord = selectRandomWord();
+        $scope.resultsStatement = '';
         var tempDisplayWord = '';
         for (var i = 0; i < selectedWord.length; i++) {
             tempDisplayWord += '*';
         }
         $scope.displayWord = tempDisplayWord;
-        // Random word selection.
     }
     
     function loseGame() {
-        alert("im here");
-        
-        $timeout(function() {
-            newGame();
-        }, 500);
+        $scope.resultsStatement = "YOU LOSE";
     }
     
     function winGame() {
-        alert('asdfasf');
-        
-        $timeout(function() {
-            newGame();
-        }, 500);
+        $scope.resultsStatement = "YOU WIN";
     }
     
     $scope.letterChosen = function() {
+        // Reset the view, if a previous game just ended
+        if($scope.resultsStatement.length != 0) {
+            newGame();
+        }
+        
         // Check if $scope.input.letter is a single letter and an alphabet and not an already chosen letter.
         // Check if its correct.
         for (var i = 0; i < $scope.correctLettersChosen.length; i++) {
