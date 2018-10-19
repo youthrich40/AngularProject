@@ -37,3 +37,11 @@ body .submit{
     font-size: 400%;
     font-family: DejaVu Sans Mono, monospace; 
 }
+
+.gameInfo {
+    font-size: 200%;
+}
+
+.keyEntryForm {
+    size: 2em;
+}

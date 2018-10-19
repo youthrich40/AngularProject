@@ -20,22 +20,22 @@
             Welcome to Angular Hangman
         </p>
     </div>
-    <div>
-        <div>
+    <div class="container">
+        <div class="gameInfo">
             Guesses Left :: {{guesses}}
         </div>
-        <div>
+        <div class="gameInfo">
             Your Incorrect Guesses :: <span ng-repeat="letter in incorrectLettersChosen"> {{letter}} </span>
         </div>
-        <div>
+        <div class="gameInfo">
             Your Correct Guesses :: <span ng-repeat="letter in correctLettersChosen"> {{letter}} </span>
         </div>
-        <div>
+        <div class="gameInfo">
             The word is :: {{displayWord}}
         </div>
         <div>
-            <div>
-                <input id="keyEntryField" type="text" name="guess" ng-model="input.letter">
+            <div class="keyEntryForm">
+                <input size="5" maxlength="1" id="keyEntryField" type="text" name="guess" ng-model="input.letter">
                 <button id="keyEntryButton" ng-click="letterChosen()">Submit</button>
             </div>
         </div>

@@ -1,7 +1,8 @@
 var app = angular.module("HangmanApp", []);
 
 app.controller("GameController", ['$scope', '$timeout', function($scope, $timeout) {
-    var words = ["Altassian", "Remember", "Mountain", "Pokemon"];
+    var words = ["Altassian", "Remember", "Mountain", "Pokemon", "things", "blanket", "world", "angular", "china", "homerun", "bed", "couch", "unbelievable", "heroic",
+    "outstanding", "table"];
     $scope.incorrectLettersChosen = [];
     $scope.correctLettersChosen = [];
     var selectedWord = '';
@@ -11,12 +12,12 @@ app.controller("GameController", ['$scope', '$timeout', function($scope, $timeou
         letter: ''
     };
     
-    var selectRandomWord = function() {
+    function selectRandomWord() {
         var index = Math.floor(Math.random() * words.length);
         return words[index];
     }
     
-    var newGame = function() {
+    function newGame() {
         $scope.incorrectLettersChosen = [];
         $scope.correctLettersChosen = [];
         $scope.guesses = 6;
@@ -28,6 +29,22 @@ app.controller("GameController", ['$scope', '$timeout', function($scope, $timeou
         }
         $scope.displayWord = tempDisplayWord;
         // Random word selection.
+    }
+    
+    function loseGame() {
+        alert("im here");
+        
+        $timeout(function() {
+            newGame();
+        }, 500);
+    }
+    
+    function winGame() {
+        alert('asdfasf');
+        
+        $timeout(function() {
+            newGame();
+        }, 500);
     }
     
     $scope.letterChosen = function() {
@@ -62,17 +79,11 @@ app.controller("GameController", ['$scope', '$timeout', function($scope, $timeou
         $scope.input.letter = "";
         if ($scope.guesses == 0) {
             // You Lose
-            alert("you lost");
-            $timeout(function() {
-                newGame();
-            }, 500);
+            loseGame();
         }
         if ($scope.displayWord.indexOf("*") == -1) {
             // Show score
-            alert("you won");
-            $timeout(function() {
-                newGame();
-            }, 500);
+            winGame();
         }
     }
     newGame();
