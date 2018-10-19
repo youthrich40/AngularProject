@@ -5,6 +5,7 @@
     <title> Hangman App </title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
@@ -14,7 +15,6 @@
 </head>
 
 <body ng-app="HangmanApp" ng-controller="GameController">
-
     <div class="row align-items-center">
         <p class="text-center col-md-12 welcome-bar">
             Welcome to Angular Hangman
@@ -35,10 +35,20 @@
         </div>
         <div>
             <div>
-                <input type="text" name="guess" ng-model="input.letter">
-                <button ng-click="letterChosen()">Submit</button>
+                <input id="keyEntryField" type="text" name="guess" ng-model="input.letter">
+                <button id="keyEntryButton" ng-click="letterChosen()">Submit</button>
             </div>
         </div>
     </div>
+    
+    <script>
+        var input = document.getElementById("keyEntryField");
+        input.addEventListener("keyup", function(event) {
+            event.preventDefault();
+            if (event.keyCode === 13) {
+                document.getElementById("keyEntryButton").click();
+            }
+        });
+    </script>
 </body>
 </html>
