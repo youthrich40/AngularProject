@@ -32,3 +32,8 @@ body .display{
 body .submit{
     text-align: center;
 }
+
+.welcome-bar {
+    font-size: 400%;
+    font-family: DejaVu Sans Mono, monospace; 
+}
